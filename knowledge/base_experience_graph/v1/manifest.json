@@ -1,0 +1,24 @@
+{
+  "counts": {
+    "prior_knowledge": 25,
+    "typed_edges": 152,
+    "verified_episodes": 0
+  },
+  "created_at": "2026-08-19T03:51:07.260338+00:00",
+  "files": {
+    "experience.sqlite": "41bb5a58a21024644660cd9bb75cc044d7ee91b04ab0095a43c3f6ba8f6ec6ef",
+    "graph.jsonl": "97335c95554075432e0c9f39e9892244d013eff140af75bc7c1c75f2583d42df",
+    "prior_knowledge.jsonl": "042d09c2accf6d6677bd0bfb7c32ca4bc3a53ee4efb2189e240be302f3c921da",
+    "schema_versions.json": "61e61e4a43ce340880ddeaaf13784ed7d155f2489e8acda9a4cf07fafb44b3d1"
+  },
+  "graph_hash": "ed00ac6670cf819c3471e4ce1944269e7901857f60b033e981bf4e4eadfb4824",
+  "source": {
+    "path": "docs/prior_knowledge/DRV Repair Document.md",
+    "section": "23",
+    "sha256": "d39e13294752f879b43c511f5496999ec753d2d8ce509ea01f2e7bb5f4ae0739"
+  },
+  "verification_status": {
+    "UNVERIFIED_PRIOR": 25
+  },
+  "version": "v1"
+}

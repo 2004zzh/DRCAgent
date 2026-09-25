@@ -1,0 +1,148 @@
+schema_version: "2.0"
+project_root: .
+features:
+  experience_graph: true
+  dynamic_graph: true
+  graph_rewire: true
+  joint_planning: true
+  message_passing: true
+  geometry_edges: true
+  shared_net_edges: true
+  resource_edges: true
+  timing_edges: false
+  timing_verification: false
+workflow:
+  max_iterations: 5
+  max_windows_per_iteration: 32
+  max_no_progress_iterations: 2
+  max_parallel_subgraphs: 4
+  transaction_mode: serialized
+  checkpoint_backend: sqlite
+  fail_closed: true
+region:
+  seed_window_um: 2.0
+  dbu_per_um: 4000
+  adaptive_halo: true
+  halo_min_dbu: 72
+  halo_max_dbu: 4000
+  affinity_max_gap_dbu: 400
+  max_region_markers: 12
+  max_region_objects: 128
+  max_region_span_um: 4.0
+  max_context_tokens: 6000
+agent_graph:
+  max_soft_neighbors_per_relation: 4
+  soft_edge_threshold: 0.35
+  strong_edge_threshold: 0.65
+  proximity_only_score_cap: 0.34
+  max_active_subgraph_regions: 12
+  max_llm_view_regions: 12
+  preserve_maximum_spanning_forest: true
+agent:
+  top_k_candidates_including_noop: 4
+  max_geometry_variants_per_hypothesis: 3
+  message_rounds: 2
+  max_message_rounds: 3
+  max_candidate_distance_dbu: 512
+  allowed_distances_dbu: [8, 16, 24, 32, 48, 64]
+llm:
+  enabled: false
+  provider: openrouter
+  model: ""
+  base_url: null
+  api_key_env: OPENROUTER_API_KEY
+  temperature: 0.2
+  top_p: 1.0
+  timeout_seconds: 120
+  max_retries: 2
+  max_concurrent_requests: 4
+  seed: null
+  effort: null
+  enable_thinking: null
+  thinking_budget: null
+  allow_fallback: false
+  max_output_tokens: 3000
+  prompt_version: region-agent-v2
+  skill_version: drc-layout-ir-v2
+  evodrc_skill_enabled: true
+  evodrc_skill_root: benchmarks/EvoDRC/agent/knowledge/cla
+backend:
+  type: klayout_dac26
+  image: drc-benchmark-repair:latest
+  stage_root: /tmp/drc-agent
+  layout_timeout_seconds: 300
+  drc_timeout_seconds: 900
+  connectivity_timeout_seconds: 300
+  keep_failed_workspace: true
+  manufacturing_grid_dbu: 4
+  max_concurrent_eda_jobs: 2
+coordinator:
+  solver: cp_sat
+  time_limit_seconds: 5.0
+  oversized_time_limit_seconds: 30.0
+  num_search_workers: 1
+  random_seed: 0
+  log_search_progress: false
+  allow_unverified_exploration: true
+  max_unverified_non_noop_per_subgraph: 1
+acceptance:
+  require_connectivity: true
+  require_drc_progress: true
+  reject_new_violations: true
+  keep_best_verified: true
+retrieval:
+  seed_k: 8
+  rrf_k0: 60
+  min_verified_success: 2
+  min_contrastive_failure: 2
+  min_alternative_action: 1
+  min_joint_episode_if_available: 1
+  expansion_hops: 1
+  max_episodes: 24
+  max_evidence_nodes: 60
+  max_context_tokens: 8000
+  embedding_enabled: false
+repair_programming:
+  sound_simple_fast_path: true
+  enabled: true
+  max_revisions: 2
+  max_regions_per_subgraph: 2
+  max_calls_per_subgraph: 6
+  require_rule_witness: true
+  escalate_contextual: true
+  escalate_unsupported: true
+  escalate_after_no_progress: true
+candidate_evidence:
+  sandbox_enabled: true
+  sandbox_top_m_per_view: 8
+  sandbox_max_jobs_per_iteration: 32
+  sandbox_connectivity_for_risky_actions: true
+  joint_sandbox_enabled: true
+  joint_sandbox_max_bundle_size: 5  #4
+  joint_sandbox_max_rounds: 5
+  cache_key_version: sandbox-v2
+candidate_graph:
+  pairwise_preview_version: gc-preview-v2
+  interaction_margin_dbu: 72
+  fail_on_incomplete_audit: true
+transaction:
+  max_non_noop_actions_per_batch: 5  #4
+  max_modified_objects_per_batch: 20
+  replan_after_each_commit: true
+attribution:
+  enabled: true
+  delta_debug_enabled: false
+  max_replays_per_failure: 4
+repair_kernel_integration:
+  enabled: false
+  mode: disabled
+  require_gate: false
+  gate_contract: contracts/formal_integration_gate.json
+  legacy_fallback_for_supported: false
+  legacy_fallback_for_unsupported: false
+  max_plans_per_region: 3
+  max_trajectory_depth: 4
+  max_kernel_live_calls_per_region: 32
+  reuse_verified_kernel_evidence: true
+  require_trajectory_condensation: true
+  supported_families: [SPACING, ENCLOSURE, VIA_METAL_CONTEXTUAL]

@@ -1,0 +1,161 @@
+schema_version: "1.0"
+rules:
+  M1.S.2:
+    family: spacing
+    primary_layers: [M1]
+    min_influence_nm: 25
+    halo_multiplier: 2.0
+    allowed_action_families: [NO_OP, MOVE_SHAPE, RESIZE_SHAPE, LOCAL_DETOUR, LOCAL_REROUTE, CHANGE_LAYER]
+    provenance: frozen_dac26_description_reviewed_2026-08-17
+  M1.S.4:
+    family: spacing
+    primary_layers: [M1]
+    min_influence_nm: 31
+    halo_multiplier: 2.0
+    allowed_action_families: [NO_OP, MOVE_SHAPE, RESIZE_SHAPE, LOCAL_DETOUR, LOCAL_REROUTE, CHANGE_LAYER]
+    provenance: frozen_dac26_description_reviewed_2026-08-17
+  M1.S.5:
+    family: spacing
+    primary_layers: [M1]
+    min_influence_nm: 31
+    halo_multiplier: 2.0
+    allowed_action_families: [NO_OP, MOVE_SHAPE, RESIZE_SHAPE, LOCAL_DETOUR, LOCAL_REROUTE, CHANGE_LAYER]
+    provenance: frozen_dac26_description_reviewed_2026-08-17
+  M1.S.6:
+    family: spacing
+    primary_layers: [M1]
+    min_influence_nm: 20
+    halo_multiplier: 2.0
+    allowed_action_families: [NO_OP, MOVE_SHAPE, RESIZE_SHAPE, LOCAL_DETOUR, LOCAL_REROUTE, CHANGE_LAYER]
+    provenance: frozen_dac26_description_reviewed_2026-08-17
+  M2.S.7:
+    family: spacing
+    primary_layers: [M2]
+    min_influence_nm: 35
+    halo_multiplier: 2.0
+    description: Minimum parallel run length for M2 spacing relation.
+    repair_semantics: PARALLEL_RUN
+    allowed_action_families: [NO_OP, MOVE_SHAPE, RESIZE_SHAPE, LOCAL_DETOUR, LOCAL_REROUTE, CHANGE_LAYER]
+    provenance: frozen_dac26_description_reviewed_2026-08-17
+  M3.S.2:
+    family: spacing
+    primary_layers: [M3]
+    min_influence_nm: 25
+    halo_multiplier: 2.0
+    allowed_action_families: [NO_OP, MOVE_SHAPE, RESIZE_SHAPE, LOCAL_DETOUR, LOCAL_REROUTE, CHANGE_LAYER]
+    provenance: frozen_dac26_description_reviewed_2026-08-17
+  M4.S.2:
+    family: spacing
+    primary_layers: [M4]
+    min_influence_nm: 40
+    halo_multiplier: 2.0
+    allowed_action_families: [NO_OP, MOVE_SHAPE, RESIZE_SHAPE, LOCAL_DETOUR, LOCAL_REROUTE, CHANGE_LAYER]
+    provenance: frozen_dac26_description_reviewed_2026-08-17
+  M4.S.3:
+    family: spacing
+    primary_layers: [M4]
+    min_influence_nm: 40
+    halo_multiplier: 2.0
+    allowed_action_families: [NO_OP, MOVE_SHAPE, RESIZE_SHAPE, LOCAL_DETOUR, LOCAL_REROUTE, CHANGE_LAYER]
+    provenance: frozen_dac26_description_reviewed_2026-08-17
+  M4.S.4:
+    family: spacing
+    primary_layers: [M4]
+    min_influence_nm: 40
+    halo_multiplier: 2.0
+    allowed_action_families: [NO_OP, MOVE_SHAPE, RESIZE_SHAPE, LOCAL_DETOUR, LOCAL_REROUTE, CHANGE_LAYER]
+    provenance: frozen_dac26_description_reviewed_2026-08-17
+  M4.S.5:
+    family: spacing
+    primary_layers: [M4]
+    min_influence_nm: 44
+    halo_multiplier: 2.0
+    allowed_action_families: [NO_OP, MOVE_SHAPE, RESIZE_SHAPE, LOCAL_DETOUR, LOCAL_REROUTE, CHANGE_LAYER]
+    provenance: frozen_dac26_description_reviewed_2026-08-17
+  M4.AUX.1:
+    family: alignment
+    primary_layers: [M4]
+    min_influence_nm: 24
+    halo_multiplier: 1.5
+    allowed_action_families: [NO_OP, MOVE_SHAPE, LOCAL_DETOUR, LOCAL_REROUTE]
+    provenance: frozen_dac26_description_reviewed_2026-08-17
+    description: M4 horizontal edges must lie on the 24 nm manufacturing grid.
+    repair_semantics: GRID_ALIGNMENT
+  M4.AUX.2:
+    family: alignment
+    primary_layers: [M4]
+    min_influence_nm: 48
+    halo_multiplier: 1.5
+    allowed_action_families: [NO_OP, MOVE_SHAPE, LOCAL_DETOUR, LOCAL_REROUTE]
+    provenance: frozen_dac26_description_reviewed_2026-08-17
+    description: Minimum-width M4 tracks must follow the legal pitch and origin offset.
+    repair_semantics: TRACK_ALIGNMENT
+  M5.AUX.1:
+    family: alignment
+    primary_layers: [M5]
+    min_influence_nm: 24
+    halo_multiplier: 1.5
+    allowed_action_families: [NO_OP, MOVE_SHAPE, LOCAL_DETOUR, LOCAL_REROUTE]
+    provenance: frozen_dac26_description_reviewed_2026-08-17
+    description: M5 vertical edges must lie on the 24 nm manufacturing grid.
+    repair_semantics: GRID_ALIGNMENT
+  M6.AUX.1:
+    family: alignment
+    primary_layers: [M6]
+    min_influence_nm: 32
+    halo_multiplier: 1.5
+    allowed_action_families: [NO_OP, MOVE_SHAPE, LOCAL_DETOUR, LOCAL_REROUTE]
+    provenance: frozen_dac26_description_reviewed_2026-08-17
+    description: M6 horizontal edges must lie on the 32 nm manufacturing grid.
+    repair_semantics: GRID_ALIGNMENT
+  V0.M1.AUX.3:
+    family: width
+    primary_layers: [V0, M1]
+    min_influence_nm: 18
+    halo_multiplier: 2.0
+    allowed_action_families: [NO_OP, RESIZE_SHAPE, MOVE_VIA_STACK]
+    provenance: frozen_dac26_description_reviewed_2026-08-17
+    description: V0 width must equal M1 width in the direction perpendicular to M1 length.
+    repair_semantics: VIA_METAL_WIDTH
+  V1.M1.EN.1:
+    family: enclosure
+    primary_layers: [V1, M1]
+    min_influence_nm: 5
+    halo_multiplier: 2.0
+    allowed_action_families: [NO_OP, RESIZE_SHAPE, ADJUST_ENDPOINT, MOVE_VIA_STACK]
+    provenance: frozen_dac26_description_reviewed_2026-08-17
+    description: Minimum enclosure of V1 by M1 on two opposite sides is 5 and 2 nm.
+    repair_semantics: ENCLOSURE
+  V2.M3.AUX.2:
+    family: width
+    primary_layers: [V2, M3]
+    min_influence_nm: 18
+    halo_multiplier: 2.0
+    allowed_action_families: [NO_OP, RESIZE_SHAPE, MOVE_VIA_STACK]
+    provenance: frozen_dac26_description_reviewed_2026-08-17
+    description: V2 width must equal M3 width in the direction perpendicular to M3 length.
+    repair_semantics: VIA_METAL_WIDTH
+  V4.M5.AUX.2:
+    family: width
+    primary_layers: [V4, M5]
+    min_influence_nm: 18
+    halo_multiplier: 2.0
+    allowed_action_families: [NO_OP, RESIZE_SHAPE, MOVE_VIA_STACK]
+    provenance: frozen_dac26_description_reviewed_2026-08-17
+    description: V4 width must equal M5 width in the direction perpendicular to M5 length.
+    repair_semantics: VIA_METAL_WIDTH
+  V5.M6.AUX.2:
+    family: width
+    primary_layers: [V5, M6]
+    min_influence_nm: 18
+    halo_multiplier: 2.0
+    allowed_action_families: [NO_OP, RESIZE_SHAPE, MOVE_VIA_STACK]
+    provenance: frozen_dac26_description_reviewed_2026-08-17
+    description: V5 width must equal M6 width in the direction perpendicular to M6 length.
+    repair_semantics: VIA_METAL_WIDTH
+fallback:
+  family: unknown
+  halo_multiplier: 2.0
+  allowed_action_families: [NO_OP, MOVE_SHAPE]
+  provenance: conservative_unknown_rule
+

@@ -1,0 +1,22 @@
+schema_version: "2.0"
+project_root: .
+resource_control:
+  protocol_version: p5-global-resource-v1
+  enabled: true
+  coordination_root: tmp/global-resource
+  global_http_limit: 8
+  global_eda_limit: 4
+  queue_timeout_seconds: 600
+  poll_interval_seconds: 0.05
+  storage:
+    targets:
+      - {role: host_root, path: ., required: true}
+      - {role: daemon_root, path: /var/lib/docker, required: true}
+      - {role: stage, path: tmp/eda, required: true}
+      - {role: results, path: runs, required: true}
+    pause_free_bytes: 32212254720
+    resume_free_bytes: 53687091200
+    worst_concurrent_batch_bytes: 8589934592
+    pause_free_inode_fraction: 0.1
+    resume_free_inode_fraction: 0.15
+    sample_interval_seconds: 30

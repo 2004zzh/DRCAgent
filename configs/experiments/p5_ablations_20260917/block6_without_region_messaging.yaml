@@ -1,0 +1,127 @@
+profile_version: '1.0'
+experiment_id: without-region-messaging
+case_id: Block6
+method: NO_EDGE
+seed: 1101
+config:
+  workflow:
+    max_iterations: 5
+    max_windows_per_iteration: 247
+    max_no_progress_iterations: 2
+    max_parallel_subgraphs: 4
+    transaction_mode: serialized
+    checkpoint_backend: sqlite
+    fail_closed: true
+    engineering_canary: false
+    engineering_target_violation_ids: []
+    max_eda_evaluations_per_run: 6250
+    whole_run_budget_seconds: 216000
+  llm:
+    enabled: true
+    provider: siliconflow
+    model: deepseek-ai/DeepSeek-V4-Flash
+    base_url: https://api.siliconflow.cn/v1
+    api_key_env: SILICONFLOW_API_KEY
+    temperature: 0.2
+    top_p: 1.0
+    timeout_seconds: 120
+    queue_timeout_seconds: 600
+    request_timeout_seconds: 120
+    max_retries: 2
+    max_output_tokens: 3000
+    max_concurrent_requests: 4
+    effort: null
+    enable_thinking: false
+    thinking_budget: null
+    allow_fallback: false
+    max_http_attempts_per_run: 3750
+  backend:
+    type: klayout_dac26
+    image: drc-benchmark-repair:latest
+    max_concurrent_eda_jobs: 2
+    stage_root: tmp/eda
+    artifact_retention_mode: compact
+    container_workspace_mode: copy
+    keep_failed_workspace: false
+  acceptance:
+    require_connectivity: true
+    require_drc_progress: true
+    reject_new_violations: true
+    keep_best_verified: true
+  candidate_evidence:
+    sandbox_max_jobs_per_iteration: 6250
+    joint_sandbox_max_bundle_size: 5
+    joint_sandbox_max_rounds: 5
+  transaction:
+    max_non_noop_actions_per_batch: 5
+    max_modified_objects_per_batch: 20
+    replan_after_each_commit: true
+  repair_kernel_integration:
+    enabled: true
+    mode: formal_v1
+    require_gate: false
+    legacy_fallback_for_supported: false
+    legacy_fallback_for_unsupported: false
+    max_plans_per_region: 3
+    max_trajectory_depth: 4
+    max_kernel_live_calls_per_region: 32
+    reuse_verified_kernel_evidence: true
+    require_trajectory_condensation: true
+    supported_families:
+    - SPACING
+    - ENCLOSURE
+    - VIA_METAL_CONTEXTUAL
+    - ALIGNMENT
+    supported_rule_ids:
+    - M1.S.2
+    - M1.S.4
+    - M1.S.5
+    - M1.S.6
+    - M2.S.7
+    - M3.S.2
+    - M4.AUX.1
+    - M4.AUX.2
+    - M4.S.4
+    - M4.S.5
+    - M5.AUX.1
+    - M6.AUX.1
+    - V0.M1.AUX.3
+    - V1.M1.EN.1
+    - V2.M3.AUX.2
+    - V4.M5.AUX.2
+    - V5.M6.AUX.2
+  features:
+    experience_graph: true
+    message_passing: false
+    geometry_edges: false
+    shared_net_edges: false
+    resource_edges: false
+  resource_control:
+    protocol_version: p5-global-resource-v1
+    enabled: true
+    coordination_root: tmp/global-resource
+    global_http_limit: 8
+    global_eda_limit: 4
+    queue_timeout_seconds: 600
+    poll_interval_seconds: 0.05
+    storage:
+      targets:
+      - role: host_root
+        path: .
+        required: true
+      - role: daemon_root
+        path: /var/lib/docker
+        required: true
+      - role: stage
+        path: tmp/eda
+        required: true
+      - role: results
+        path: runs
+        required: true
+      pause_free_bytes: 32212254720
+      resume_free_bytes: 53687091200
+      worst_concurrent_batch_bytes: 8589934592
+      pause_free_inode_fraction: 0.1
+      resume_free_inode_fraction: 0.15
+      sample_interval_seconds: 30
+  project_root: .

@@ -1,0 +1,18 @@
+backends:
+  klayout:
+    enabled: true
+    primary: true
+    image: drc-benchmark-repair:latest
+    expected_version: "0.30.1"
+    local_entrypoint_override: /bin/bash
+    host_stage_root: /tmp/2510878-drc-agent
+    timeout:
+      layout_seconds: 300
+      drc_seconds: 900
+      connectivity_seconds: 300
+dac26:
+  report_converter:
+    module: evaluator/process_klayout_reports.py
+    entrypoint: process_single_file
+    benchmark_commit: runtime-resolved
+

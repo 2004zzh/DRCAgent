@@ -1,0 +1,6 @@
+case_id: Block1
+design_type: block
+pdk: ASAP7
+expected_baseline_drv: 244
+expected_violated_rules: 14
+benchmark_relpath: testcase/asap7/block

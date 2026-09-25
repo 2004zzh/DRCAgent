@@ -1,0 +1,47 @@
+# Experiment outputs and mutable runtime state
+runs/**
+!runs/.gitkeep
+tmp/**
+!tmp/.gitkeep
+results/
+result/
+score/
+logs/
+task/
+
+# Credentials and local environment
+.env
+.env.*
+*.key
+*.pem
+credentials*.json
+
+# Python/build caches; shipped binary extensions are intentionally tracked
+__pycache__/
+*.py[cod]
+*.c
+*.o
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Editor, OS, and transient files
+.vscode/
+.idea/
+.DS_Store
+*.log
+*.tmp
+*.partial
+*~
+
+# Optional large extra-case payloads are distributed separately, not via GitHub
+benchmarks/extra/all_cases/gcd.json
+benchmarks/extra/all_cases/sasc.json
+benchmarks/extra/all_cases/simple_spi.json
+benchmarks/extra/all_cases/usb_phy.json
+benchmarks/extra/all_cases.tar.gz

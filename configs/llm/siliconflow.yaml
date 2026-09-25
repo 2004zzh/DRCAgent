@@ -1,0 +1,18 @@
+llm:
+  enabled: true
+  provider: siliconflow
+  model: deepseek-ai/DeepSeek-V4-Flash
+  base_url: https://api.siliconflow.cn/v1
+  api_key_env: SILICONFLOW_API_KEY
+  temperature: 0.2
+  top_p: 1.0
+  timeout_seconds: 120
+  max_retries: 2
+  max_concurrent_requests: 4
+  queue_timeout_seconds: 600
+  request_timeout_seconds: 120
+  max_output_tokens: 3000
+  effort: null
+  enable_thinking: false
+  thinking_budget: null
+  allow_fallback: false

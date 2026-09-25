@@ -1,0 +1,13 @@
+llm:
+  enabled: true
+  provider: openrouter
+  model: ""
+  base_url: https://openrouter.ai/api/v1
+  api_key_env: OPENROUTER_API_KEY
+  temperature: 0.2
+  top_p: 1.0
+  timeout_seconds: 120
+  max_retries: 2
+  max_concurrent_requests: 4
+  effort: null
+  allow_fallback: false
