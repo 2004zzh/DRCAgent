@@ -2,6 +2,9 @@
 
 DRC Agent is a multi-region, physically verified DRC repair system for ASAP7 layouts. Each Region Agent combines the current rule witness, executable degrees of freedom, neighborhood relations, an experience blueprint, and the initial layer-specific EvoDRC skill to select a repair strategy. A deterministic Repair Kernel converts that strategy into legal geometry edits. Selected candidates are committed only after fresh KLayout DRC, sanity, and connectivity checks pass.
 
+The architecture of the DRC Agent is shown as:
+![DRC-Agent Overview](figs/architecture.png)
+
 This release provides three reproducible experiment variants:
 
 - `complete`: the complete method, with the Experience Graph and all three types of inter-region relations and message passing enabled.
